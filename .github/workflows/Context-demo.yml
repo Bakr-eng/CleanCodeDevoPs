@@ -8,6 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     env:
       job-level: ruben
+
+      strategy:
+        matrix:
+          colour: [red, blue, green]
+          number: [1,2,3]
     steps:
       - name: setup another env var
         env:
@@ -20,6 +25,9 @@ jobs:
           echo "Hello world, from our workflow"
           echo "our env i: ${{ toJson(env) }}"
           echo "out vars i: ${{ toJson(vars) }}"
-          echo "our matrix i: ${{ toJson(matrix) }}"
           
-        
+          
+
+      - name: matrix timeout-minutes
+        run: |
+          echo "our matrix is: ${{ toJson(matrix) }}"
