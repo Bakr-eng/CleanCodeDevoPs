@@ -9,6 +9,8 @@ jobs:
       - name: print som context 
         run: |
           echo "Hello world, from our workflow"
-          echo "Repository: ${{ github.action }}"
+          echo "our env i: ${{ toJson(env) }}"
+          echo "out vars i: ${{ toJson(vars) }}"
+          echo "our matrix i: ${{ toJson(matrix) }}"
           
         
