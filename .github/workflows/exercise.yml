@@ -1,0 +1,16 @@
+name: Exercise
+on:
+  workflow_dispatch:
+    inputs:
+      viktig:
+        description: "Ett viktigt tal"
+        required: true
+        type: number
+
+jobs:
+  kor-om-tillrackligt-viktigt:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.viktig >= 7 }}
+    steps:
+      - name: Skriv ut talet
+        run: echo "Talet ${{ inputs.viktig }} är minst 7 – jobbet körs!"
