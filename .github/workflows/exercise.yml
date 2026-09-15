@@ -13,4 +13,4 @@ jobs:
     if: ${{ inputs.viktig >= 7 }}
     steps:
       - name: Skriv ut talet
-        run: echo "Talet ${{ inputs.viktig }} är minst 7 – jobbet körs!"
+        run: echo "Talet ${{ inputs.viktig }}, minst är  7 – jobbet körs!"
