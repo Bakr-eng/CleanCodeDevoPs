@@ -1,5 +1,6 @@
 name: Context Demo
 on: workflow_dispatch
+
 env:
   workflow-level: Bakr
   
@@ -9,15 +10,17 @@ jobs:
     env:
       job-level: ruben
 
-      strategy:
-        matrix:
-          colour: [red, blue, green]
-          number: [1,2,3]
+    strategy:
+      matrix:
+        colour: [red, blue, green]
+        number: [1, 2, 3]
+
     steps:
       - name: setup another env var
         env:
           another-step: secret
         run: echo ${{ env.another-step }}
+
       - name: print som context 
         env:
           this-step: demelza
@@ -26,8 +29,6 @@ jobs:
           echo "our env i: ${{ toJson(env) }}"
           echo "out vars i: ${{ toJson(vars) }}"
           
-          
-
       - name: matrix timeout-minutes
         run: |
           echo "our matrix is: ${{ toJson(matrix) }}"
