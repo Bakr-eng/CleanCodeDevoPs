@@ -7,4 +7,10 @@ jobs:
     steps:
       - name: Step 1
         run: echo "Hello world, from our workflow"
+
+
+      - name: print som context 
+        run: |
+          echo "Repository: ${{ github.action }}"
+          
         
