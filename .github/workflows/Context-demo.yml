@@ -1,8 +1,8 @@
 name: Context Demo
 on: workflow_dispatch
-
 env:
   workflow-level: Bakr
+  website: mindfulstack.se
   
 jobs: 
   print-some-stuff:
@@ -13,13 +13,15 @@ jobs:
     strategy:
       matrix:
         colour: [red, blue, green]
-        number: [1, 2, 3]
+        name: [Bakr, Ruben, Demelza]
 
     steps:
       - name: setup another env var
         env:
-          another-step: secret
-        run: echo ${{ env.another-step }}
+          secret: 42
+        run: |
+          echo "with gh expression syntax: ${{ env.secret }}"
+          echo "with pure bash: $secret"
 
       - name: print som context 
         env:
@@ -32,3 +34,5 @@ jobs:
       - name: matrix timeout-minutes
         run: |
           echo "our matrix is: ${{ toJson(matrix) }}"
+          echo "${{ matrix.name}}s favourite color is ${{matrix.colour}}"
+          
