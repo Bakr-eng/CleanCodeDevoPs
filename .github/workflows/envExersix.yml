@@ -2,24 +2,25 @@ name: Env Context Demo
 on: workflow_dispatch
 
 env:
-  workflow-level: "jag är satt på workflow-nivå"
+  WORKFLOW_LEVEL: "jag är satt på workflow-nivå"
 
 jobs:
   visa-env:
     runs-on: ubuntu-latest
     env:
-      job-level: "jag är satt på job-nivå"
+      JOB_LEVEL: "jag är satt på job-nivå"
+
     steps:
       - name: Steg 1 - visa alla env-variabler
         env:
-          step-level: "jag är satt på step-nivå"
+          STEP_LEVEL: "jag är satt på step-nivå"
         run: |
-          echo "Workflow: "$WORKFLOW_LEVEL"
-          echo "Job: "$JOB_LEVEL"
-          echo "Step: "$STEP_LEVEL"
+          echo "Workflow: $WORKFLOW_LEVEL"
+          echo "Job: $JOB_LEVEL"
+          echo "Step: $STEP_LEVEL"
 
       - name: Steg 2 - försök nå step-variabeln igen
         run: |
-          echo "Workflow: "$WORKFLOW_LEVEL"
-          echo "Job: "$JOB_LEVEL"
-          echo "Step (borde vara tom!): "$STEP_LEVEL"
+          echo "Workflow: $WORKFLOW_LEVEL"
+          echo "Job: $JOB_LEVEL"
+          echo "Step (borde vara tom!): $STEP_LEVEL"
