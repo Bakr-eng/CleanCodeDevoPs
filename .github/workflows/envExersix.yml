@@ -14,12 +14,12 @@ jobs:
         env:
           step-level: "jag är satt på step-nivå"
         run: |
-          echo "Workflow: $workflow-level"
-          echo "Job: $job-level"
-          echo "Step: $step-level"
+          echo "Workflow: "$WORKFLOW_LEVEL"
+          echo "Job: "$JOB_LEVEL"
+          echo "Step: "$STEP_LEVEL"
 
       - name: Steg 2 - försök nå step-variabeln igen
         run: |
-          echo "Workflow: $workflow-level"
-          echo "Job: $job-level"
-          echo "Step (borde vara tom!): $step-level"
+          echo "Workflow: "$WORKFLOW_LEVEL"
+          echo "Job: "$JOB_LEVEL"
+          echo "Step (borde vara tom!): "$STEP_LEVEL"
